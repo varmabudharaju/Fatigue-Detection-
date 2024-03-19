@@ -6,18 +6,43 @@ The Fatigue Detection and Alert System for Vehicles is designed to address the c
 ## Motivation
 Driver fatigue is a significant factor in many vehicle accidents. This project aims to develop a prototype drowsiness detection system that measures and records real-time features of the driver or driving pattern, evaluating them against predetermined levels to indicate fatigue.
 
-## Technologies Used
-- **Hardware Requirements:**
-  - Processor: Intel i5 onwards
-  - Solid State Disk: 1GB
-  - System Memory: 4GB
-  - Camera: 30fps
-- **Software Requirements:**
-  - Python 3.7
-  - Open-CV
-  - Python library dlib
-  - shape_predictor_68_face_landmarks.dat
-  - HAAR Cascading files
+## System Requirements
+
+### Hardware Requirements
+- **Webcam**: 30fps minimum for real-time video capture.
+- **Computer**: Intel i5 processor (or equivalent) with at least 4GB of RAM.
+
+### Software Requirements
+- **Python**: Version 3.7 or higher.
+- Libraries:
+  - **OpenCV**
+  - **Dlib**
+  - **NumPy**
+  - **Imutils**
+  - **Playsound**
+  - **Argparse**
+
+## Installation
+
+1. Ensure Python 3.7 or higher is installed on your system.
+
+2. Install the necessary Python libraries by running the following command in your terminal or command prompt:
+    ```bash
+    pip install numpy imutils opencv-python dlib playsound argparse
+    ```
+
+3. Download the `shape_predictor_68_face_landmarks.dat` file from the [dlib website](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2), extract it, and note the file location.
+
+4. Prepare an alarm sound file in MP3 or WAV format and place it in an accessible directory.
+
+## Execution Instructions
+
+1. Open your terminal or command prompt and navigate to the directory containing the `FaceDetection.py` script.
+
+2. Run the script with the necessary arguments for the shape predictor and alarm file. Replace `<path_to_shape_predictor>` with the path to your `shape_predictor_68_face_landmarks.dat` file, and `<path_to_alarm_file>` with the path to your alarm sound file:
+    ```bash
+    python FaceDetection.py --shape-predictor <path_to_shape_predictor> --alarm <path_to_alarm_file>
+
 
 ## Implementation
 The system captures video from a camera, divides it into frames, and analyzes each frame for the presence of fatigue signs. It involves the detection of the driver's face and eyes and evaluates the state of drowsiness based on the eye aspect ratio and blink duration.
